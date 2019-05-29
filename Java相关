@@ -1,1 +1,160 @@
+## Java相关面试题
+
+
+
+1. 注解如何获取，反射为何耗性能？
+
+   反射不一样，它是在运行时，而非编译时，动态获取类型的信息，比如接口信息、成员信息、方法信息、构造方法信息等，根据这些动态获取到的信息创建对象、访问/修改成员、调用方法等。
+
+   <https://www.cnblogs.com/swiftma/p/6804342.html>
+
+   <https://juejin.im/post/598ea9116fb9a03c335a99a4>
+
+   反射为什么慢
+
+   <https://blog.csdn.net/xqlovetyj/article/details/82798864>
+
+   变长参数方法导致的 Object 数组，基本类型的自动装箱、拆箱，还有最重要的方法内联。
+
+2. ConcurrentHashMap的原理，分的段数是多少
+
+ [Java编程的逻辑 (74) - 并发容器 - ConcurrentHashMap](https://www.cnblogs.com/swiftma/p/6557685.html)
+
+ [Java并发包concurrent——ConcurrentHashMap](<https://blog.csdn.net/moakun/article/details/80203568>)
+
+3. Hashmap,Arraymap，SparseArray
+
+Java为什么要推出HashMap，它是如何解决hash冲突的
+
+hashMap
+
+[Java编程的逻辑 (40) - 剖析HashMap](https://www.cnblogs.com/swiftma/p/5940305.html)
+
+[ArrayList](http://mp.weixin.qq.com/s?__biz=MzIxOTI1NTk5Nw==&mid=2650047268&idx=1&sn=2806dfecbe039241d4206a4182602b8b&chksm=8fde26f6b8a9afe0a1f63bf10eed60fd12707060ed5ffb5c36d7b9ae8e14b1a11c447a39b7b8&scene=21#wechat_redirect)和[LinkedList](http://mp.weixin.qq.com/s?__biz=MzIxOTI1NTk5Nw==&mid=2650047277&idx=1&sn=648419ba6c79d862d229ff49c5c76394&chksm=8fde26ffb8a9afe9a1b1c2d78498f16e30d42976eb39610795a549e15aac32d4dca9f8e43ab9&scene=21#wechat_redirect)，它们的一个共同特点是，查找元素的效率都比较低，都需要逐个进行比较，本节介绍HashMap，它的查找效率则要高的多
+
+1. 计算键的哈希值
+
+2. 根据哈希值得到保存位置（取模）
+
+3. 插到对应位置的链表头部或更新已有值
+
+4. 根据需要扩展table大小 
+
+   
+
+[ArrayList](https://www.cnblogs.com/swiftma/p/5894874.html)
+
+```
+public E get(int index)
+```
+
+```
+public boolean contains(Object o)
+```
+
+ [Java编程的逻辑 (39) - 剖析LinkedList](https://www.cnblogs.com/swiftma/p/5914153.html)
+
+4. Java为何引入泛型，泛型边界
+
+ [Java编程的逻辑 (35) - 泛型 (上) - 基本概念和原理](https://www.cnblogs.com/swiftma/p/5847198.html)
+
+"泛型"字面意思就是广泛的类型，类、接口和方法代码可以应用于非常广泛的类型，代码与它们能够操作的数据类型不再绑定在一起，同一套代码，可以用于多种数据类型，这样，不仅可以复用代码，降低耦合，同时，还可以提高代码的可读性和安全性
+
+Java泛型是通过擦除实现的，类定义中的类型参数如T会被替换为Object，在程序运行过程中，不知道泛型的实际类型参数
+
+- <?>和<? extends E>用于实现更为灵活的读取，它们可以用类型参数的形式替代，但通配符形式更为简洁。
+- <? super E>用于实现更为灵活的写入和比较，不能被类型参数形式替代
+
+5.  ArrayMap跟SparseArray在HashMap上面的改进
+
+ [ArrayMap代码分析](https://www.cnblogs.com/huanyou/p/5985303.html)
+
+　Java提供了HashMap，但是HashMap对于手机端而言，对内存的占用太大，所以Android提供了SparseArray和ArrayMap。二者都是基于二分查找，所以数据量大的时候，最坏效率会比HashMap慢很多。因此建议数据量在千以内比较合适。
+
+ [Android集合之SparseArray、ArrayMap详解](<https://blog.csdn.net/hq942845204/article/details/81293480>)
+
+6. Java的四种引用及使用场景
+
+[ Java四种引用对比](<https://www.jianshu.com/p/e66d03c3e614>)
+
+7. ClassLoader的理解
+
+ [Java编程的逻辑 (87) - 类加载机制](https://www.cnblogs.com/swiftma/p/6901301.html)
+
+8. 线程池的几个参数的理解，四种线程池的使用场景
+[Java编程的逻辑 (78) - 线程池](https://www.cnblogs.com/swiftma/p/6691017.html)
+
+9. ArrayList跟HashMap是够线程安全，如何保证线程安全
+
+ [如何让HashMap变成线程安全的？](<https://blog.csdn.net/u010653908/article/details/53419685>)
+
+10. JVM中的GC回收机制
+
+ [扒一扒JVM的垃圾回收机制，下次面试你准备好了吗](https://www.cnblogs.com/1024Community/p/honery.html)
+
+11. StringBuffer跟StringBuilder之间的区别
+
+[String、StringBuffer与StringBuilder之间区别](<https://www.jianshu.com/p/dcfcea438462>)
+
+12. 抽象类能否实例化，理论依据是什么
+
+[抽象类能否实例化思考](<https://www.jianshu.com/p/d984093b9716>)
+
+13. 静态同步锁与普通同步锁的区别
+   [静态方法加锁，和非静态方法加锁区别](<https://www.jianshu.com/p/8327c5c15cb8>)
+14. Java中的锁，各种同步方式之间的区别
+
+[java synchronized对象锁与类锁的区别、同步代码块与同步方法的区别](<https://blog.csdn.net/u010002184/article/details/72566874>)
+
+15. JVM内存分布
+
+ [深入理解JVM之JVM内存区域与内存分配](https://www.cnblogs.com/wangjzh/p/5258254.html)
+
+16. 静态代理跟动态代理
+
+[静态代理和动态代理的区别和联系](<https://www.cnblogs.com/baizhanshi/p/6611164.html>)
+
+17.线程的生命周期
+
+ [Java多线程-线程的生命周期](https://www.cnblogs.com/linjiqin/p/3208494.html)
+
+18. 编译期注解跟运行时注解
+
+    [深入理解编译注解（一）从实战理解什么是编译注解](<https://blog.csdn.net/u011315960/article/details/64439575>)
+
+19.equals跟==
+
+ [浅谈Java中的equals和==](https://www.cnblogs.com/dolphin0520/p/3592500.html)
+
+20.对Java.nio了解多少
+
+ [Java NIO？看这一篇就够了！](https://blog.csdn.net/u011381576/article/details/79876754)
+
+21. 为什么复写equals方法的同时需要复写hashcode方法，前者相同后者是否相同，反过来呢？为什么？
+
+[hascode和equals为什么要同时复写—Java源码中的奥秘](<https://blog.csdn.net/muskter/article/details/76228662>)
+
+22. 类的初始化过程
+
+[深入理解Java对象的创建过程：类的初始化与实例化](<https://blog.csdn.net/justloveyou_/article/details/72466416>)
+
+23. Hashmap的hash算法
+
+ [HashMap中的hash算法总结](https://www.cnblogs.com/wang-meng/p/9b6c35c4b2ef7e5b398db9211733292d.html)
+
+24. Sycronized原理
+
+    [Java并发编程：Synchronized及其实现原理](https://www.cnblogs.com/paddix/p/5367116.html)
+
+25. ReentrantLock原理
+
+    [ReentrantLock原理分析](<https://blog.csdn.net/wuyangyang555/article/details/80984428>)
+
+26. 静态内部类为什么能保证单例，JVM是如何实现的
+
+    [深入理解单例模式：静态内部类单例原理](<https://blog.csdn.net/mnb65482/article/details/80458571>)
+
+27. 深拷贝浅拷贝
+
+    [Java 浅拷贝和深拷贝的理解和实现方式](https://www.cnblogs.com/shakinghead/p/7651502.html)
 
